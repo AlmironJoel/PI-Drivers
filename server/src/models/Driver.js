@@ -7,7 +7,8 @@ module.exports = (sequelize) => {
     id:{
       type:DataTypes.UUID,
       primaryKey:true,
-      allowNull:false
+      allowNull:false,
+      defaultValue:DataTypes.UUIDV4//genera un id
     },
     nombre: {
       type: DataTypes.STRING,
@@ -34,5 +35,5 @@ module.exports = (sequelize) => {
       allowNull:false
     }
 
-  });
+  },{ timestamps: false });
 };

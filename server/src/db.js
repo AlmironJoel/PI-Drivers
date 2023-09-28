@@ -7,6 +7,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
+//extrae los permisos de postgres 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`, {
   logging: false, 
   native: false, 
@@ -28,9 +29,8 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+//relacion entre modelos
 const { Driver,Teams } = sequelize.models;
-
-
 Driver.belongsToMany(Teams, {through: "driver_team"});
 Teams.belongsToMany(Driver, {through: "driver_team"});
 
