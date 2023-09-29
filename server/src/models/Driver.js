@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       allowNull:false
     },
     image:{
-      type: DataTypes.BLOB('long'), 
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     nacionalidad:{
@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       allowNull:false
     },
     FechaDeNacimiento:{
-      type:DataTypes.DATE,
+      type:DataTypes.STRING,
       allowNull:false
     }
 
