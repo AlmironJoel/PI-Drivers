@@ -3,7 +3,7 @@ const{getTeamsController} = require ('../controllers/getTeamsControllers')
 const getTeamsHandler = async (req,res)=>{
     try {
     const allTeams = await getTeamsController()
-    res.status(200).json(allTeams)
+    res.status(200).json('Se genero los Teams!')
     } catch (error) {
     res.status(500).json({error:error.menssage})
     }

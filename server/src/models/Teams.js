@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
         allowNull:false,
         defaultValue:DataTypes.UUIDV4
       },
-      nombre: {
+      teamName: {
         type: DataTypes.STRING,
         allowNull: false,
       },

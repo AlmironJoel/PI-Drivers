@@ -36,7 +36,7 @@ allDrivers.push(...apiData); // Guarda los Drivers de la Api
     }
   // Se convierte en array y se crea un objeto por cada team
     const teamsOK = Array.from(cleanTeams).map((nombre) => ({
-      nombre: nombre,
+      teamName: nombre,
     }));
     // Inserta registros en la bd
     await Teams.bulkCreate(teamsOK);

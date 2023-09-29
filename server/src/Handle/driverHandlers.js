@@ -23,20 +23,26 @@ const getDetailHandler = (req,res) => {
 }   
 
 const postDriverHandler = async(req,res) => {
-    const {forename,surname,description,image,nationality,dob,team}=req.body
+    const {
+        nombre,
+        apellido,
+        descripcion,
+        nacionalidad,
+        FechaDeNacimiento,
+        teamName}=req.body
 
     try {
-        created = await createDriver(
-            forename,
-            surname,
-            description,
-            image,nationality,
-            dob,
-            team
+       const created = await createDriver(
+            nombre,
+            apellido,
+            descripcion,
+            nacionalidad,
+            FechaDeNacimiento,
+            teamName
         );
         res.status(200).json(created)
     } catch (error) {
-        res.status(400).json({error:error.menssage})
+        res.status(450).json({error:error.menssage})
     }
 }
 
