@@ -3,9 +3,9 @@ const {getDriversControllers} = require('../controllers/getDriversControllers')
 const {getNameControllers} = require ('../controllers/getNameControllers')
 
 const getDriverHandler = async (req ,res) => {
+    const {name} = req.query
+    const algo = name
     try {
-        const {name} = req.query
-
         if(name){
             const filteredDrivers = await getNameControllers(name);
             res.status(200).json(filteredDrivers)
@@ -14,7 +14,7 @@ const getDriverHandler = async (req ,res) => {
             res.status(200).json(allDrivers)
         } 
     } catch (error) {
-        res.status(500).json({error:error.menssage})
+        res.status(500).json({error:error.message})
     }
 };
 
