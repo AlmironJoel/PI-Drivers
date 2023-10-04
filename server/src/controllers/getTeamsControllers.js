@@ -1,4 +1,4 @@
-const { Teams } = require("../db");//*
+const { Teams } = require("../db");
 const axios = require("axios");
 
 const getTeamsController = async () => {
@@ -12,8 +12,10 @@ const getTeamsController = async () => {
     const apiData = (await axios.get("http://localhost:5000/drivers")).data; // Trae Drivers de la Api
     //---------
 allDrivers.push(...apiData); // Guarda los Drivers de la Api
-    //-------------------------------
-    // Trae los 'Teams' de los Drivers
+    
+//todo-------------------------------
+
+// Trae los 'Teams' de los Drivers
     const allTeams = await Promise.all(
       allDrivers.map(async (driver) => {
         return {

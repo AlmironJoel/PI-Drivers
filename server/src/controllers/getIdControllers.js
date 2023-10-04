@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Driver } = require("../db");
+const { Driver,Teams,driver_team} = require("../db");
 const apiUrl = "http://localhost:5000/drivers";
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
@@ -25,12 +25,29 @@ const getIdController = async (id) => {
     };
     return driver;
   } else {
-    console.log("Requering from the DB");
+  
     const driverDB = await Driver.findOne({
-      where: { id: { [Op.iLike]: `%${id}%` } },
+      where: { id: id },//trae driver de base datos    
     });
-    return driverDB;
+
+    if(driverDB){
+      const driverTeams =await driver_team.findAll({
+        where:{DriverId:driverDB.id}//trae uuid de tabla relacional driver
+        })
+          const teamIds = driverTeams.map((team) => team.TeamId);
+     const teamDB = await Teams.findAll({
+       where: { id: { [Sequelize.Op.in]: teamIds } },
+     });
+     const teamString = teamDB.map((team) => team.teamName).join(", ");
+    
+     const driverWithTeamName = {
+       ...driverDB.toJSON(),
+       teamName: teamString,
+     };
+        return driverWithTeamName;
+    }
+ 
   }
 };
 
-module.exports = getIdController;
+module.exports = {getIdController};

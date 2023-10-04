@@ -7,7 +7,7 @@ const {getDriverHandler,
 const driverRouters = Router()
 //RUTAS DRIVER
 driverRouters.get('/',getDriverHandler)
-driverRouters.get('/id',getDetailHandler)
+driverRouters.get('/:id',getDetailHandler)
 driverRouters.post('/',postDriverHandler)
 
 module.exports = driverRouters
