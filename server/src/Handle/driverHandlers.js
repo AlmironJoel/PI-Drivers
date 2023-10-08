@@ -5,7 +5,7 @@ const {getIdController} = require ('../controllers/getIdControllers')
 
 const getDriverHandler = async (req ,res) => {
     const {name} = req.query
-    const algo = name
+    
     try {
         if(name){
             const filteredDrivers = await getNameControllers(name);

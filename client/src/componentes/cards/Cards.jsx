@@ -1,14 +1,22 @@
-import './Cards.css'
+import Card from '../card/Card';
+import style from './Cards.module.css';
 
-function Cards() {
+export default function Cards({drivers}) {
 
-  return (
-    <>
-      <h1>Esta es la pagina de LandingPage</h1>
-      <p>Esta pagina aparece al comienzo y es el acceso principal a nuestra pagina.De momento no vamos a colocarle un Login pero si va a necesitar un boton a Home.</p>
-      
-    </>
-  )
+   return (
+      <div className={style.container}>
+        { drivers.map((driver) => (
+          <Card className={style.card} 
+            key={driver.id} // clave unica
+            id={driver.id}
+            forename={driver.forename}
+            surname={driver.surname}
+            teams={driver.Teams || driver.teams}
+            image={driver.image.url ? driver.image.url : driver.image}
+            dob={driver.dob}
+          />
+        ))}
+      </div>
+  );
 }
 
-export default Cards
