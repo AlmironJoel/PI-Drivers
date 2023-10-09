@@ -5,6 +5,7 @@ import { GET_ALL_DRIVERS,
          SET_CURRENT_PAGE,
          FILTER_DRIVERS,
          ORDER_DRIVERS,
+         GET_DRIVER_BY_ID
 
   } from './action_types';
 
@@ -28,6 +29,17 @@ export function getDriverByName(name){
             payload: response.data
         })
     }
+}
+
+export const getDriversById =  (id) => {
+  return async function(dispatch){
+      const response = await axios(`${URL_BASE}/${id}`);
+      return dispatch({
+          type: GET_DRIVER_BY_ID,
+          payload: response.data
+        })
+        console.log("data",response);   
+  }
 }
 
 export const getTeams = () => {

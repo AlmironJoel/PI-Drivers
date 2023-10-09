@@ -1,5 +1,6 @@
 import Card from '../card/Card';
 import style from './Cards.module.css';
+import {useSelector} from 'react-redux'
 
 export default function Cards({drivers}) {
 
@@ -9,8 +10,8 @@ export default function Cards({drivers}) {
           <Card className={style.card} 
             key={driver.id} // clave unica
             id={driver.id}
-            forename={driver.forename}
-            surname={driver.surname}
+            forename={driver.driverRef}
+            surname={driver.name.forename}
             teams={driver.Teams || driver.teams}
             image={driver.image.url ? driver.image.url : driver.image}
             dob={driver.dob}

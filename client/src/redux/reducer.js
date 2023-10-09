@@ -4,11 +4,12 @@ import { GET_ALL_DRIVERS,
          SET_CURRENT_PAGE,
          FILTER_DRIVERS,
         ORDER_DRIVERS,
+        GET_DRIVER_BY_ID
          } from './actions/action_types';
 
 let initialState = { 
     allDrivers:[], 
-    driversCopy:[], 
+    driversCopy:[],
     driversOrigin:[],
      teams:[],
     currentPage: 1,
@@ -41,6 +42,7 @@ function reducer(state = initialState, action){
                   currentPage: 1,
                 };
               }
+
   
         case GET_TEAMS:
             return {
@@ -154,8 +156,23 @@ function reducer(state = initialState, action){
             return {
                 ...state,
                 allDrivers: orderedDrivers
-                } 
+                }
 
+case GET_DRIVER_BY_ID:
+    if(action.payload.length === 0){
+            return {
+                ...state,
+                allDrivers:[{message: "No hay Drivers con ese ID"}],
+                currentPage:1,
+            }
+        }
+        else {
+        return {
+            ...state,
+            allDrivers:action.payload,
+            currentPage:1,
+        }
+        }
 
         default:
             return state
