@@ -4,7 +4,7 @@ import style from './CreateDriver.module.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { getTeams } from '../../redux/actions/actions';
-import f1 from "../../assets/f1-createdriver.png";
+import f1 from '../../assets/f1-createdriver.png'
 
 const CreateDriver = () => {
 

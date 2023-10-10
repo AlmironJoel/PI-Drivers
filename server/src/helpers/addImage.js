@@ -4,7 +4,7 @@ const addImage = (arr) =>{
             return{
                 ...driver,  
                 image:{
-                    url:'https://img-9gag-fun.9cache.com/photo/a9qWR71_460s.jpg'
+                    url:'https://img.freepik.com/foto-gratis/coche-deportivo-brillante-conduciendo-pista-deportiva-iluminada-ia-generativa_188544-53590.jpg'
                 }
             }
         } else {

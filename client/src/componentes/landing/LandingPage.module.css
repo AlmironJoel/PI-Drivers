@@ -4,12 +4,7 @@
     align-items: center;
     place-items: center;
 
-    min-height: 100vh;
-    min-width: 100vw;
-    background-image: url('../../assets/bg-landing.png');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
+   
 
   }
   
@@ -17,7 +12,7 @@
   
   .content {
     text-align: center;
-    color: #fff; /* Color del texto */
+    color: #040303; /* Color del texto */
     z-index: 1; /* Coloca el contenido sobre la imagen de fondo */
   }
   

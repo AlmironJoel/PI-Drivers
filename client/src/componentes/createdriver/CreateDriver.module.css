@@ -43,6 +43,7 @@
     margin-bottom: 10px;
     width: 100%;
     font-weight: bold;
+    color: white;
     
   }
   
@@ -105,7 +106,7 @@ select {
   
   font-size: 50px; 
   margin: 10px 0; 
-  color: white;
+  color: rgb(3, 1, 1);
 }
 
 

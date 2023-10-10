@@ -109,9 +109,9 @@ const FilterOrder = () => {
           <select onChange={handleFilterByTeams} className={style.option}>
             <option value="All Teams">All Teams</option>
             {teams?.map(team => 
-              <option key={team.id} value={team}>{team.teamName}</option>
-            
-            ) }
+              <option onChange={handleFilterByTeams} key={team.id} value={team.teamName}>{team.teamName}</option>
+              ) }
+              
           </select>
         </div>        
 

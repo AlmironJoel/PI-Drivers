@@ -10,8 +10,8 @@ export default function Cards({drivers}) {
           <Card className={style.card} 
             key={driver.id} // clave unica
             id={driver.id}
-            forename={driver.driverRef}
-            surname={driver.name.forename}
+            forename={driver.name?.forename?driver.name?.forename:driver.nombre}
+            surname={driver.name?.surname?driver.name?.surname:driver.apellido}
             teams={driver.Teams || driver.teams}
             image={driver.image.url ? driver.image.url : driver.image}
             dob={driver.dob}

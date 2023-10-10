@@ -33,8 +33,7 @@ module.exports = (sequelize) => {
     FechaDeNacimiento:{
       type:DataTypes.STRING,
       allowNull:false
-    }
-
+    },
 
   },{ timestamps: false });
 };

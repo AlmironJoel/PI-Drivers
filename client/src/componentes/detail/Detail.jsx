@@ -4,32 +4,44 @@ import axios from "axios";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllDrivers, getDriversById} from '../../redux/actions/actions'
+import {getAllDrivers,clearDetail, getDriversById} from '../../redux/actions/actions'
 
-const defaultImage = "https://www.donolli.com.ar/defaultImagePI.png"
+
+
 function Detail() {
   const dispatch = useDispatch()
   const {id} = useParams();
   
   useEffect(()=>{
     dispatch(getDriversById(`${id}`));
-    console.log(getAllDrivers);
+    return () => {dispatch(clearDetail())}//limpia el detail
   },[])
   
-  const users = useSelector(state=> state.allDrivers)
-  console.log("hols",users);
+  const users = useSelector(state=> state.driverDetail)
 
   return (
     <>
-      <h1>Esta es la pagina de DETAIL!</h1>
-      <h1>{`es un ${users.id}`}</h1>
-         <h1>{`Nombre ${users.nombre}`}</h1>
-         <img src={users.image} alt="Imagen" />
-         <h1>{`Apellido ${users.apellido}`}</h1>
-         <h1>{`Nacionalidad ${users.nacionalidad}`}</h1>
-         <h1>{`descripcion ${users.descripcion}`}</h1>
-         <h1>{`Fecha ${users.FechaDeNacimiento}`}</h1>
-         <h1>{`team ${users.teams}`}</h1>
+      <div className={style.container}>
+          <div>
+          <h2 className={style.title}>Driver's detail</h2>
+          </div>
+
+          <div className={style.detail}>
+              <div className={style.leftColumn}>
+                <h1>{`Nombre ${users.nombre}`}</h1>
+                <h2>{`Apellido ${users.apellido}`}</h2>
+                <h3>{`Nacionalidad ${users.nacionalidad}`}</h3>
+                <p>{`descripcion ${users.descripcion}`}</p>
+                <p>{`Fecha de Nacimiento ${users.FechaDeNacimiento}`}</p>
+                <h3>{`team/s: ${users.teams}`}</h3>
+                <h3>{`ID: ${users.id}`}</h3>
+              </div>
+
+              <div className={style.rightColumn}>
+                <img src={users.image} alt="Imagen" />
+              </div>
+          </div>
+      </div>
     </>
   )
 }

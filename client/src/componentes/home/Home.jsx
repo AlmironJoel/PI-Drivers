@@ -19,7 +19,6 @@ function Home() {
   useEffect(() => {
     if (allDrivers.length === 0) {
       dispatch(getAllDrivers());
-      
     }
   }, [dispatch, allDrivers.length]);
   
@@ -40,7 +39,7 @@ function Home() {
 
   const startPage = (currentPage - 1) * driversPerPage;
   const endPage = startPage + driversPerPage;
-  const currentDriversForPagination = allDrivers.slice(startPage, endPage);
+  //const currentDriversForPagination = allDrivers.slice(startPage, endPage);
 
   const PreviousPage = () => {
     if (currentPage > 1) {
