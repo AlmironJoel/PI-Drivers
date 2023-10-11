@@ -10,6 +10,9 @@
 .container:hover{
   transform: scale(1.05);
 }
+.text {
+  color: rgb(255, 255, 255);
+}
 .image {
    width: 200px;
     height: 200px; 
@@ -29,6 +32,7 @@
 
 .overflowVisible {
   white-space: initial;
+  color: rgb(30, 255, 0);
 }
 
 

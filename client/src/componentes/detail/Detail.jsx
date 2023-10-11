@@ -28,17 +28,23 @@ function Detail() {
 
           <div className={style.detail}>
               <div className={style.leftColumn}>
-                <h1>{`Nombre ${users.nombre}`}</h1>
-                <h2>{`Apellido ${users.apellido}`}</h2>
-                <h3>{`Nacionalidad ${users.nacionalidad}`}</h3>
-                <p>{`descripcion ${users.descripcion}`}</p>
-                <p>{`Fecha de Nacimiento ${users.FechaDeNacimiento}`}</p>
-                <h3>{`team/s: ${users.teams}`}</h3>
+                <div className={style.specialFont}>
+                <h1>{`${users.nombre} ${users.apellido}`}
+                </h1>
+                </div>
+                
+                <div className={style.infoDriver}>
+                <p className={style.negrita}>{`Nacionalidad: ${users.nacionalidad}`}</p>
+                <p className={style.negrita}>{`DESCRIPCION: ${users.descripcion}`}</p>
+                <p className={style.negrita}>{`Fecha de Nacimiento ${users.FechaDeNacimiento}`}</p>
+                <p className={style.negrita}>{`team/s: ${users.teams}`}</p>
+                </div>
+
                 <h3>{`ID: ${users.id}`}</h3>
               </div>
 
               <div className={style.rightColumn}>
-                <img src={users.image} alt="Imagen" />
+                <img src={users.image} alt="Imagen" className={style.circularImage} />
               </div>
           </div>
       </div>

@@ -16,13 +16,13 @@ function Card(props) {
 
         <Link to={`/detail/${id}`}>
           
-          <h3 className={style.name}>{forename} {surname}</h3>
+          <h3 className={style.text}>{forename} {surname}</h3>
           {/* <h2>{id}</h2>  */}
         </Link>
-        <div>Dob {dob}</div>
-        <h4>Teams: </h4>
+        <div className={style.text}>Dob {dob}</div>
+        <h4 className={style.text} >Teams: </h4>
         {typeof teams === 'string' 
-          ? (<p className={style.overflowVisible}>{teams}</p>) 
+          ? (<p  className={style.overflowVisible}>{teams}</p>) 
           : Array.isArray(teams) && teams.length > 0 
             ? (
               <p className={style.overflowVisible} >

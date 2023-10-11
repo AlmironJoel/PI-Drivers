@@ -77,9 +77,9 @@ function reducer(state = initialState, action) {
         filteredDrivers = filteredDrivers.filter(
           (driver) => typeof driver.id === "number"
         );
-      } else if (source === "BD") {
+      } else if (source === "BD") {//Me tiene que traer solo por BD los driver
         filteredDrivers = filteredDrivers.filter(
-          (driver) => typeof driver.id === "string"
+          (driver) => typeof driver.id !== "number"
         );
       }
 
@@ -94,12 +94,10 @@ function reducer(state = initialState, action) {
               return driver?.teams.includes(team);
             }            
             
-          } else if (typeof driver.id === "string") {
+          } else if (typeof driver.id != "number") {
             // Si el "id" es una cadena, es un registro de la BD
-            return (
-              driver.Teams &&
-              driver.Teams.some((teamObj) => teamObj.name === team)
-            );
+        
+            return  driver.teams && driver.teams.some((teamObj) => teamObj.name === team);
           }
           return false;
         });
